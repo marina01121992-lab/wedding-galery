@@ -1,0 +1,151 @@
+body{
+margin:0;
+background:white;
+color:#333;
+font-family:var(--font-body);
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:120px 20px 80px 20px;
+position:relative;
+z-index:2;
+}
+
+.hero-names{
+font-family:var(--font-names);
+font-size:80px;
+color:#d4af37;
+margin:0;
+text-shadow:
+0 0 8px #fff4c9,
+0 0 18px #ffe27a,
+0 0 35px rgba(212,175,55,0.8);
+}
+
+.hero-date{
+margin-top:20px;
+font-size:28px;
+letter-spacing:4px;
+color:#b8962e;
+}
+
+/* BUTTONS */
+
+.gold-btn{
+font-family:var(--font-body);
+background:linear-gradient(145deg,#f6e27a,#d4af37);
+color:white;
+padding:14px 32px;
+border-radius:40px;
+border:none;
+cursor:pointer;
+font-size:18px;
+margin:10px;
+box-shadow:
+0 4px 10px rgba(0,0,0,0.15),
+0 0 15px rgba(212,175,55,0.6);
+transition:0.3s;
+}
+
+.gold-btn:hover{
+transform:translateY(-2px);
+box-shadow:
+0 8px 18px rgba(0,0,0,0.25),
+0 0 25px rgba(212,175,55,0.8);
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:25px;
+max-width:1200px;
+margin:auto;
+padding:40px;
+position:relative;
+z-index:2;
+}
+
+.gallery img{
+width:100%;
+border-radius:14px;
+cursor:pointer;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* FULLSCREEN VIEW */
+
+.fullscreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.fullscreen img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+}
+
+/* REALISTIC GLITTER */
+
+.glitter{
+pointer-events:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:1;
+}
+
+.sparkle{
+position:absolute;
+width:6px;
+height:6px;
+background:#d4af37;
+border-radius:50%;
+opacity:0;
+animation:sparkle-fall linear infinite;
+filter:blur(0.5px);
+}
+
+@keyframes sparkle-fall{
+
+0%{
+transform:translateY(-100vh) scale(0.3);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+50%{
+transform:translateY(40vh) scale(1);
+filter:brightness(1.6);
+}
+
+100%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+
+}
