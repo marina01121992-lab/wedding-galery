@@ -1,38 +1,34 @@
 import "./globals.css"
-import { Playfair_Display, Great_Vibes } from "next/font/google"
+import { Playfair_Display } from "next/font/google"
 
-const namesFont = Great_Vibes({
+const font = Playfair_Display({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-names"
-})
-
-const bodyFont = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400","500","600"],
-  variable: "--font-body"
 })
 
 export const metadata = {
   title: "Emanuel & Marina",
-  description: "Wedding gallery"
+  description: "Wedding Gallery"
 }
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}:{
+  children:React.ReactNode
+}){
 
-  return (
-    <html lang="en" className={`${namesFont.variable} ${bodyFont.variable}`}>
-      <body>
+  return(
 
-        <div className="glitter"></div>
+<html lang="en">
 
-        {children}
+<body className={font.className}>
 
-      </body>
-    </html>
+<div className="glitter"></div>
+
+{children}
+
+</body>
+
+</html>
+
   )
 }
