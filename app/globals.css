@@ -1,8 +1,10 @@
 body{
 margin:0;
 background:white;
-color:#c9a227;
 text-align:center;
+font-family:'Playfair Display',serif;
+color:#c9a227;
+overflow-x:hidden;
 }
 
 /* HERO */
@@ -11,14 +13,16 @@ text-align:center;
 padding:80px 20px;
 }
 
-.names{
-font-size:70px;
-line-height:1.2;
+.hero h1{
+font-family:'Great Vibes',cursive;
+font-size:90px;
+line-height:1.1;
+margin:0;
 }
 
-.names span{
+.hero .and{
 display:block;
-font-size:50px;
+font-size:70px;
 }
 
 .date{
@@ -27,43 +31,75 @@ margin-top:20px;
 }
 
 .welcome{
-font-size:20px;
+font-size:22px;
 margin-top:10px;
 }
 
-/* BUTTON */
+/* GOLD BUTTON */
 
-.buttons{
-margin:40px 0;
-}
+.uploadBtn{
 
-.goldBtn{
+display:inline-block;
+
+margin-top:40px;
 
 background:linear-gradient(
-45deg,
-#d4af37,
-#f8e7a0,
-#d4af37
+90deg,
+#c9a227,
+#f2d57e,
+#c9a227
 );
 
-border:none;
-
-padding:18px 36px;
+padding:18px 40px;
 
 border-radius:40px;
 
-cursor:pointer;
-
-font-size:18px;
-
 color:white;
 
-box-shadow:0 5px 20px rgba(212,175,55,.6);
+font-size:20px;
+
+cursor:pointer;
+
+box-shadow:0 8px 25px rgba(201,162,39,.6);
+
+position:relative;
+
+overflow:hidden;
 
 }
 
-.goldBtn input{
+.uploadBtn input{
 display:none;
+}
+
+.uploadBtn::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.6),
+transparent
+);
+
+animation:shine 3s infinite;
+
+}
+
+@keyframes shine{
+
+0%{left:-100%}
+100%{left:100%}
+
 }
 
 /* SLIDESHOW */
@@ -71,9 +107,9 @@ display:none;
 .slideshow{
 
 width:90%;
-max-width:600px;
+max-width:650px;
 
-margin:40px auto;
+margin:60px auto;
 
 }
 
@@ -81,9 +117,9 @@ margin:40px auto;
 
 width:100%;
 
-border-radius:12px;
+border-radius:15px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+box-shadow:0 10px 40px rgba(0,0,0,.25);
 
 }
 
@@ -93,22 +129,23 @@ box-shadow:0 10px 30px rgba(0,0,0,.2);
 
 display:grid;
 
-grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
 
-gap:12px;
+gap:14px;
 
-padding:20px;
+padding:30px;
 
 }
 
 .gallery img{
 
 width:100%;
-height:150px;
+
+height:160px;
 
 object-fit:cover;
 
-border-radius:10px;
+border-radius:12px;
 
 cursor:pointer;
 
@@ -148,11 +185,11 @@ justify-content:center;
 max-width:90%;
 max-height:90%;
 
-border-radius:12px;
+border-radius:15px;
 
 }
 
-/* GLITTER */
+/* GLITTER PARTICLES */
 
 body::before{
 
@@ -166,25 +203,32 @@ left:0;
 width:100%;
 height:100%;
 
+pointer-events:none;
+
 background-image:
 
 radial-gradient(#e6c65c 1px,transparent 1px),
+radial-gradient(#e6c65c 1px,transparent 1px),
 radial-gradient(#e6c65c 1px,transparent 1px);
 
-background-size:120px 120px;
+background-size:
 
-opacity:.4;
+140px 140px,
+180px 180px,
+220px 220px;
 
-animation:glitterMove 25s linear infinite;
+animation:glitterMove 30s linear infinite;
 
-pointer-events:none;
+opacity:.5;
 
 }
 
 @keyframes glitterMove{
 
 0%{transform:translate(0,0)}
-50%{transform:translate(60px,80px)}
+
+50%{transform:translate(80px,120px)}
+
 100%{transform:translate(0,0)}
 
 }

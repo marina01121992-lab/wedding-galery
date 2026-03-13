@@ -6,8 +6,8 @@ import { supabase } from "../lib/supabase"
 export default function Home(){
 
 const [images,setImages] = useState<string[]>([])
-const [selected,setSelected] = useState<string | null>(null)
 const [slide,setSlide] = useState(0)
+const [selected,setSelected] = useState<string|null>(null)
 
 async function loadImages(){
 
@@ -23,7 +23,7 @@ console.log(error)
 return
 }
 
-const urls = data.map(file => {
+const urls = data.map(file=>{
 
 const { data:publicUrl } = supabase.storage
 .from("photos")
@@ -41,9 +41,9 @@ useEffect(()=>{
 
 loadImages()
 
-const interval = setInterval(loadImages,5000)
+const refresh = setInterval(loadImages,4000)
 
-return ()=>clearInterval(interval)
+return ()=>clearInterval(refresh)
 
 },[])
 
@@ -53,7 +53,7 @@ if(images.length===0) return
 
 const timer = setInterval(()=>{
 
-setSlide(s => (s+1)%Math.min(images.length,10))
+setSlide(s=>(s+1)%Math.min(images.length,10))
 
 },3000)
 
@@ -90,13 +90,13 @@ return(
 
 <section className="hero">
 
-<h1 className="names">
+<h1>
 
-Emanuel
+<span>Emanuel</span>
 
-<span>&</span>
+<span className="and">&</span>
 
-Marina
+<span>Marina</span>
 
 </h1>
 
@@ -115,9 +115,7 @@ Podijelite s nama nezaboravne trenutke današnjeg dana
 </section>
 
 
-<div className="buttons">
-
-<label className="goldBtn">
+<label className="uploadBtn">
 
 Dodaj fotografiju
 
@@ -128,8 +126,6 @@ onChange={upload}
 />
 
 </label>
-
-</div>
 
 
 {slideshow.length>0 && (
@@ -158,7 +154,7 @@ onClick={()=>setSelected(img)}
 </div>
 
 
-{selected && (
+{selected &&(
 
 <div
 className="fullscreen"
