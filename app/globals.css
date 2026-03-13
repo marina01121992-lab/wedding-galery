@@ -1,66 +1,41 @@
 body{
 margin:0;
 background:white;
-color:#b89645;
+font-family:serif;
 text-align:center;
+color:#caa64b;
 }
 
 /* HERO */
 
 .hero{
-
 padding:80px 20px;
-
 }
 
 .names{
-
-font-size:80px;
-
-font-family:'Great Vibes',cursive;
-
-display:flex;
-flex-direction:column;
-
+font-size:70px;
+line-height:1.2;
 color:#caa64b;
-
 }
 
 .names span{
-
-font-size:60px;
-
+font-size:50px;
 }
 
 .date{
-
 font-size:28px;
 margin-top:20px;
-color:#caa64b;
-
 }
 
 .welcome{
-
-font-size:22px;
+font-size:20px;
 margin-top:10px;
-color:#caa64b;
-
 }
 
-/* BUTTONS */
+/* BUTTON */
 
 .buttons{
-
 margin:40px 0;
-
-display:flex;
-gap:20px;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
 }
 
 .goldBtn{
@@ -68,7 +43,7 @@ flex-wrap:wrap;
 background:linear-gradient(
 45deg,
 #d4af37,
-#fff2a8,
+#f8e7a0,
 #d4af37
 );
 
@@ -84,15 +59,7 @@ font-size:18px;
 
 color:white;
 
-box-shadow:0 4px 15px rgba(212,175,55,.6);
-
-transition:.3s;
-
-}
-
-.goldBtn:hover{
-
-transform:scale(1.05);
+box-shadow:0 5px 15px rgba(212,175,55,.6);
 
 }
 
@@ -186,11 +153,11 @@ border-radius:12px;
 
 }
 
-/* RANDOM SPARKLE */
+/* GLITTER PARTICLES */
 
-.sparkle-container{
+body::before{
 
-pointer-events:none;
+content:"";
 
 position:fixed;
 
@@ -202,23 +169,23 @@ height:100%;
 
 background-image:
 
-radial-gradient(#f6e6a8 1px,transparent 1px),
-radial-gradient(#f6e6a8 1px,transparent 1px);
+radial-gradient(#e6c65c 1px,transparent 1px),
+radial-gradient(#e6c65c 1px,transparent 1px);
 
-background-size:120px 120px;
+background-size:140px 140px;
 
-animation:sparkle 20s linear infinite;
+opacity:.4;
 
-opacity:.5;
+animation:glitterMove 20s linear infinite;
+
+pointer-events:none;
 
 }
 
-@keyframes sparkle{
+@keyframes glitterMove{
 
 0%{transform:translate(0,0)}
-
-50%{transform:translate(40px,60px)}
-
+50%{transform:translate(50px,60px)}
 100%{transform:translate(0,0)}
 
 }
