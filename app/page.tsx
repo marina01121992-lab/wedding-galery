@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect,useState } from "react"
 import { supabase } from "../lib/supabase"
 
-export default function Home() {
+export default function Home(){
 
 const [images,setImages] = useState<string[]>([])
 const [selected,setSelected] = useState<string | null>(null)
@@ -11,19 +11,29 @@ const [slide,setSlide] = useState(0)
 
 async function loadImages(){
 
-const { data } = await supabase.storage
+const { data,error } = await supabase.storage
 .from("photos")
-.list("",{limit:1000})
+.list("",{
+limit:100,
+sortBy:{column:"created_at",order:"desc"}
+})
 
-if(!data) return
+if(error){
+console.log(error)
+return
+}
 
-const urls = data.map(file =>
-supabase.storage
+const urls = data.map(file => {
+
+const { data:publicUrl } = supabase.storage
 .from("photos")
-.getPublicUrl(file.name).data.publicUrl
-)
+.getPublicUrl(file.name)
 
-setImages(urls.reverse())
+return publicUrl.publicUrl
+
+})
+
+setImages(urls)
 
 }
 
@@ -31,7 +41,7 @@ useEffect(()=>{
 
 loadImages()
 
-const interval=setInterval(loadImages,5000)
+const interval = setInterval(loadImages,5000)
 
 return ()=>clearInterval(interval)
 
@@ -41,9 +51,9 @@ useEffect(()=>{
 
 if(images.length===0) return
 
-const timer=setInterval(()=>{
+const timer = setInterval(()=>{
 
-setSlide(s=> (s+1)%Math.min(images.length,10))
+setSlide(s => (s+1)%Math.min(images.length,10))
 
 },3000)
 
@@ -53,14 +63,20 @@ return ()=>clearInterval(timer)
 
 async function upload(e:React.ChangeEvent<HTMLInputElement>){
 
-const file=e.target.files?.[0]
+const file = e.target.files?.[0]
+
 if(!file) return
 
-const name=Date.now()+"-"+file.name
+const name = Date.now()+"-"+file.name
 
-await supabase.storage
+const {error} = await supabase.storage
 .from("photos")
 .upload(name,file)
+
+if(error){
+alert("Upload error")
+console.log(error)
+}
 
 loadImages()
 
@@ -77,7 +93,9 @@ return(
 <h1 className="names">
 
 Emanuel
+
 <span>&</span>
+
 Marina
 
 </h1>

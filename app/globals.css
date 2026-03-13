@@ -1,9 +1,8 @@
 body{
 margin:0;
 background:white;
-font-family:serif;
+color:#c9a227;
 text-align:center;
-color:#caa64b;
 }
 
 /* HERO */
@@ -15,10 +14,10 @@ padding:80px 20px;
 .names{
 font-size:70px;
 line-height:1.2;
-color:#caa64b;
 }
 
 .names span{
+display:block;
 font-size:50px;
 }
 
@@ -49,7 +48,7 @@ background:linear-gradient(
 
 border:none;
 
-padding:16px 32px;
+padding:18px 36px;
 
 border-radius:40px;
 
@@ -59,7 +58,7 @@ font-size:18px;
 
 color:white;
 
-box-shadow:0 5px 15px rgba(212,175,55,.6);
+box-shadow:0 5px 20px rgba(212,175,55,.6);
 
 }
 
@@ -153,7 +152,7 @@ border-radius:12px;
 
 }
 
-/* GLITTER PARTICLES */
+/* GLITTER */
 
 body::before{
 
@@ -172,11 +171,11 @@ background-image:
 radial-gradient(#e6c65c 1px,transparent 1px),
 radial-gradient(#e6c65c 1px,transparent 1px);
 
-background-size:140px 140px;
+background-size:120px 120px;
 
 opacity:.4;
 
-animation:glitterMove 20s linear infinite;
+animation:glitterMove 25s linear infinite;
 
 pointer-events:none;
 
@@ -185,7 +184,7 @@ pointer-events:none;
 @keyframes glitterMove{
 
 0%{transform:translate(0,0)}
-50%{transform:translate(50px,60px)}
+50%{transform:translate(60px,80px)}
 100%{transform:translate(0,0)}
 
 }
