@@ -1,34 +1,25 @@
 import "./globals.css"
-import { Playfair_Display } from "next/font/google"
+import { Playfair_Display, Great_Vibes } from "next/font/google"
 
-const font = Playfair_Display({
-  subsets: ["latin"],
-})
+const serif = Playfair_Display({ subsets: ["latin"] })
+const script = Great_Vibes({ weight: "400", subsets: ["latin"] })
 
 export const metadata = {
   title: "Emanuel & Marina",
-  description: "Wedding Gallery"
+  description: "Wedding gallery",
 }
 
 export default function RootLayout({
   children,
-}:{
-  children:React.ReactNode
-}){
-
-  return(
-
-<html lang="en">
-
-<body className={font.className}>
-
-<div className="glitter"></div>
-
-{children}
-
-</body>
-
-</html>
-
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="hr">
+      <body className={serif.className}>
+        <div className="sparkle-container"></div>
+        {children}
+      </body>
+    </html>
   )
 }

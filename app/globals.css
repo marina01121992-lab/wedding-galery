@@ -1,7 +1,7 @@
 body{
 margin:0;
-background:black;
-color:white;
+background:white;
+color:#b89645;
 text-align:center;
 }
 
@@ -15,38 +15,36 @@ padding:80px 20px;
 
 .names{
 
-font-size:70px;
+font-size:80px;
+
+font-family:'Great Vibes',cursive;
 
 display:flex;
 flex-direction:column;
 
-background:linear-gradient(
-45deg,
-#d4af37,
-#fff2a8,
-#d4af37
-);
-
--webkit-background-clip:text;
-color:transparent;
+color:#caa64b;
 
 }
 
 .names span{
 
-font-size:50px;
+font-size:60px;
 
 }
 
 .date{
 
-font-size:22px;
+font-size:28px;
+margin-top:20px;
+color:#caa64b;
 
 }
 
 .welcome{
 
-opacity:.7;
+font-size:22px;
+margin-top:10px;
+color:#caa64b;
 
 }
 
@@ -70,27 +68,57 @@ flex-wrap:wrap;
 background:linear-gradient(
 45deg,
 #d4af37,
-#fff2a8
+#fff2a8,
+#d4af37
 );
-
-color:black;
-
-padding:14px 30px;
 
 border:none;
 
-border-radius:30px;
+padding:16px 32px;
+
+border-radius:40px;
 
 cursor:pointer;
 
-position:relative;
+font-size:18px;
 
-overflow:hidden;
+color:white;
+
+box-shadow:0 4px 15px rgba(212,175,55,.6);
+
+transition:.3s;
+
+}
+
+.goldBtn:hover{
+
+transform:scale(1.05);
 
 }
 
 .goldBtn input{
 display:none;
+}
+
+/* SLIDESHOW */
+
+.slideshow{
+
+width:90%;
+max-width:600px;
+
+margin:40px auto;
+
+}
+
+.slideshow img{
+
+width:100%;
+
+border-radius:12px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
 }
 
 /* GALLERY */
@@ -101,7 +129,7 @@ display:grid;
 
 grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
 
-gap:10px;
+gap:12px;
 
 padding:20px;
 
@@ -126,8 +154,6 @@ transition:.3s;
 
 transform:scale(1.05);
 
-box-shadow:0 0 20px gold;
-
 }
 
 /* FULLSCREEN */
@@ -142,9 +168,10 @@ left:0;
 width:100%;
 height:100%;
 
-background:rgba(0,0,0,.95);
+background:rgba(0,0,0,.9);
 
 display:flex;
+
 align-items:center;
 justify-content:center;
 
@@ -155,13 +182,13 @@ justify-content:center;
 max-width:90%;
 max-height:90%;
 
-border-radius:10px;
+border-radius:12px;
 
 }
 
-/* GLITTER */
+/* RANDOM SPARKLE */
 
-.glitter{
+.sparkle-container{
 
 pointer-events:none;
 
@@ -175,21 +202,23 @@ height:100%;
 
 background-image:
 
-radial-gradient(#fff6c9 1px,transparent 1px),
-radial-gradient(#ffe27a 1px,transparent 1px);
+radial-gradient(#f6e6a8 1px,transparent 1px),
+radial-gradient(#f6e6a8 1px,transparent 1px);
 
-background-size:80px 80px;
+background-size:120px 120px;
 
-animation:glitter 10s linear infinite;
+animation:sparkle 20s linear infinite;
 
-opacity:.4;
+opacity:.5;
 
 }
 
-@keyframes glitter{
+@keyframes sparkle{
 
-0%{transform:translateY(-100px)}
+0%{transform:translate(0,0)}
 
-100%{transform:translateY(100px)}
+50%{transform:translate(40px,60px)}
+
+100%{transform:translate(0,0)}
 
 }
