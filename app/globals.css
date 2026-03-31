@@ -1,234 +1,90 @@
-body{
-margin:0;
-background:white;
-text-align:center;
-font-family:'Playfair Display',serif;
-color:#c9a227;
-overflow-x:hidden;
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #0a0a0a;
+  color: white;
 }
 
-/* HERO */
-
-.hero{
-padding:80px 20px;
+/* ✨ GLITTER (VIDLJIV) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, gold, transparent),
+    radial-gradient(2px 2px at 70% 60%, white, transparent),
+    radial-gradient(2px 2px at 40% 80%, pink, transparent),
+    radial-gradient(1px 1px at 90% 20%, white, transparent);
+  background-size: 150px 150px;
+  animation: glitterMove 5s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-.hero h1{
-font-family:'Great Vibes',cursive;
-font-size:90px;
-line-height:1.1;
-margin:0;
+@keyframes glitterMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-150px); }
 }
 
-.hero .and{
-display:block;
-font-size:70px;
+/* HEADER */
+.title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 40px;
+  text-shadow: 0 0 20px gold;
 }
 
-.date{
-font-size:28px;
-margin-top:20px;
+.subtitle {
+  text-align: center;
+  opacity: 0.8;
 }
 
-.welcome{
-font-size:22px;
-margin-top:10px;
+/* BUTTON */
+.uploadBtn {
+  display: block;
+  margin: 30px auto;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, gold, orange);
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  width: fit-content;
 }
 
-/* GOLD BUTTON */
-
-.uploadBtn{
-
-display:inline-block;
-
-margin-top:40px;
-
-background:linear-gradient(
-90deg,
-#c9a227,
-#f2d57e,
-#c9a227
-);
-
-padding:18px 40px;
-
-border-radius:40px;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-box-shadow:0 8px 25px rgba(201,162,39,.6);
-
-position:relative;
-
-overflow:hidden;
-
+.uploadBtn input {
+  display: none;
 }
 
-.uploadBtn input{
-display:none;
+/* 📸 INSTAGRAM GRID */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
 }
 
-.uploadBtn::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-100%;
-
-width:100%;
-height:100%;
-
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.6),
-transparent
-);
-
-animation:shine 3s infinite;
-
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-@keyframes shine{
-
-0%{left:-100%}
-100%{left:100%}
-
-}
-
-/* SLIDESHOW */
-
-.slideshow{
-
-width:90%;
-max-width:650px;
-
-margin:60px auto;
-
-}
-
-.slideshow img{
-
-width:100%;
-
-border-radius:15px;
-
-box-shadow:0 10px 40px rgba(0,0,0,.25);
-
-}
-
-/* GALLERY */
-
-.gallery{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-
-gap:14px;
-
-padding:30px;
-
-}
-
-.gallery img{
-
-width:100%;
-
-height:160px;
-
-object-fit:cover;
-
-border-radius:12px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.gallery img:hover{
-
-transform:scale(1.05);
-
+.gallery img:hover {
+  opacity: 0.8;
 }
 
 /* FULLSCREEN */
-
-.fullscreen{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.9);
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fullscreen img{
-
-max-width:90%;
-max-height:90%;
-
-border-radius:15px;
-
-}
-
-/* GLITTER PARTICLES */
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-pointer-events:none;
-
-background-image:
-
-radial-gradient(#e6c65c 1px,transparent 1px),
-radial-gradient(#e6c65c 1px,transparent 1px),
-radial-gradient(#e6c65c 1px,transparent 1px);
-
-background-size:
-
-140px 140px,
-180px 180px,
-220px 220px;
-
-animation:glitterMove 30s linear infinite;
-
-opacity:.5;
-
-}
-
-@keyframes glitterMove{
-
-0%{transform:translate(0,0)}
-
-50%{transform:translate(80px,120px)}
-
-100%{transform:translate(0,0)}
-
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
 }
