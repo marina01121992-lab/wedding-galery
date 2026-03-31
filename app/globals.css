@@ -1,65 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap');
+
 body {
   margin: 0;
-  font-family: sans-serif;
-  background: #0a0a0a;
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
   color: white;
+  overflow-x: hidden;
 }
 
-/* ✨ GLITTER (VIDLJIV) */
+/* ✨ REAL GLITTER (random feel) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(2px 2px at 20% 30%, gold, transparent),
-    radial-gradient(2px 2px at 70% 60%, white, transparent),
-    radial-gradient(2px 2px at 40% 80%, pink, transparent),
-    radial-gradient(1px 1px at 90% 20%, white, transparent);
-  background-size: 150px 150px;
-  animation: glitterMove 5s linear infinite;
-  opacity: 0.6;
+  background-image:
+    radial-gradient(2px 2px at 13% 27%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1.5px 1.5px at 72% 63%, rgba(255,215,0,0.8), transparent),
+    radial-gradient(2px 2px at 44% 82%, rgba(255,192,203,0.8), transparent),
+    radial-gradient(1px 1px at 91% 12%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1.5px 1.5px at 33% 55%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(2px 2px at 60% 20%, rgba(255,215,0,0.7), transparent),
+    radial-gradient(1px 1px at 80% 90%, rgba(255,255,255,0.6), transparent);
+  
+  animation: sparkle 8s linear infinite;
+  opacity: 0.7;
   pointer-events: none;
 }
 
-@keyframes glitterMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-150px); }
+/* DRUGI SLOJ ZA DUBINU */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, white, transparent),
+    radial-gradient(1px 1px at 80% 40%, gold, transparent),
+    radial-gradient(1px 1px at 50% 70%, pink, transparent);
+  
+  animation: sparkle2 12s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-/* HEADER */
+@keyframes sparkle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+@keyframes sparkle2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(200px); }
+}
+
+/* ✨ NASLOV */
 .title {
   text-align: center;
-  margin-top: 40px;
-  font-size: 40px;
-  text-shadow: 0 0 20px gold;
+  margin-top: 60px;
+  font-size: 52px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(255,215,0,0.6);
 }
 
+/* PODNASLOV */
 .subtitle {
   text-align: center;
   opacity: 0.8;
+  margin-top: 10px;
 }
 
 /* BUTTON */
 .uploadBtn {
   display: block;
-  margin: 30px auto;
-  padding: 15px 30px;
+  margin: 40px auto;
+  padding: 14px 32px;
   background: linear-gradient(45deg, gold, orange);
   border-radius: 30px;
   cursor: pointer;
-  text-align: center;
-  width: fit-content;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.uploadBtn input {
-  display: none;
+.uploadBtn:hover {
+  transform: scale(1.05);
 }
 
 /* 📸 INSTAGRAM GRID */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 4px;
+  padding: 10px;
 }
 
 .gallery img {
@@ -67,11 +100,6 @@ body::before {
   aspect-ratio: 1/1;
   object-fit: cover;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  opacity: 0.8;
 }
 
 /* FULLSCREEN */
